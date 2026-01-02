@@ -14,4 +14,5 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://HF_TOKEN:$HF_TOKEN@huggingface.co/spaces/HF_TOKEN/rag_services main
+        run: git push --force https://masoomtariq:$HF_TOKEN@huggingface.co/spaces/masoomtariq/rag_services main
+        
