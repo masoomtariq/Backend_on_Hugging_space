@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi import HTTPException, Body
-from typing import Annotated
+from typing import Annotated, Optional
 from services.rag_service import generate_rag_response
 
 app = FastAPI()
@@ -29,7 +29,7 @@ def root():
 @app.post("/rag/chat", tags=["rag"])
 def chat_endpoint(
     user_query: Annotated[str, Body(..., description="The user's query")],
-    selected_text: Annotated[str | None, Body(description="Optional selected text from the document for context")] = None
+    selected_text: Annotated[Optional[str], Body(description="Optional selected text from the document for context")] = None
 ):
     """
     Handles RAG chat queries.
